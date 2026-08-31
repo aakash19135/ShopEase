@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase - Product Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <h1>ShopEase</h1>
+
+            <div class="header-actions">
+                <a href="/" class="home-button">Home</a>
+                <button id="cartButton">Cart (<span id="cartCount">0</span>)</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-details">
+            <div class="product-details-image" id="productImage">📱</div>
+
+            <div class="product-details-info">
+                <p id="productCategory">Electronics</p>
+                <h2 id="productName">Smartphone</h2>
+                <p id="productDescription">Latest generation smartphone</p>
+                <strong id="productPrice">₹29,999</strong>
+
+                <div class="product-quantity">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" value="1" min="1">
+                </div>
+
+                <button id="addToCartButton">Add to Cart</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="product.js"></script>
+</body>
+</html>

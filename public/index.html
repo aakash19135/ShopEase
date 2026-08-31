@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase - Online Shopping</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <h1>ShopEase</h1>
+
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search products...">
+                <button id="searchButton">Search</button>
+            </div>
+
+            <div class="header-actions">
+                <button id="loginButton">Login</button>
+                <button id="cartButton">Cart (<span id="cartCount">0</span>)</button>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Electronics</a>
+            <a href="#">Fashion</a>
+            <a href="#">Home & Living</a>
+            <a href="#">Books</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div>
+                <h2>Everything You Need, All in One Place</h2>
+                <p>Discover great products at great prices.</p>
+                <button id="shopNowButton">Shop Now</button>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="section-header">
+                <h2>Featured Products</h2>
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="home">Home & Living</option>
+                    <option value="books">Books</option>
+                </select>
+            </div>
+
+            <div id="productContainer" class="product-grid">
+                <div class="product-card" data-category="electronics">
+                    <div class="product-image">📱</div>
+                    <h3>Smartphone</h3>
+                    <p>Latest generation smartphone</p>
+                    <strong>₹29,999</strong>
+                    <button class="add-cart" data-product="Smartphone">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="electronics">
+                    <div class="product-image">💻</div>
+                    <h3>Laptop</h3>
+                    <p>Powerful laptop for everyday use</p>
+                    <strong>₹59,999</strong>
+                    <button class="add-cart" data-product="Laptop">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="fashion">
+                    <div class="product-image">👕</div>
+                    <h3>Casual T-Shirt</h3>
+                    <p>Comfortable cotton t-shirt</p>
+                    <strong>₹799</strong>
+                    <button class="add-cart" data-product="Casual T-Shirt">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="home">
+                    <div class="product-image">🪑</div>
+                    <h3>Office Chair</h3>
+                    <p>Comfortable ergonomic chair</p>
+                    <strong>₹4,999</strong>
+                    <button class="add-cart" data-product="Office Chair">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="books">
+                    <div class="product-image">📚</div>
+                    <h3>Programming Book</h3>
+                    <p>Learn programming fundamentals</p>
+                    <strong>₹599</strong>
+                    <button class="add-cart" data-product="Programming Book">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-category="electronics">
+                    <div class="product-image">🎧</div>
+                    <h3>Wireless Headphones</h3>
+                    <p>Immersive wireless audio</p>
+                    <strong>₹2,499</strong>
+                    <button class="add-cart" data-product="Wireless Headphones">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section id="cartSection" class="cart-section">
+    <div class="section-header">
+        <h2>Shopping Cart</h2>
+        <button id="continueShoppingButton">Continue Shopping</button>
+    </div>
+
+    <div id="cartContainer">
+        <p id="emptyCartMessage">Your cart is empty.</p>
+    </div>
+
+    <div class="cart-summary">
+        <h3>Total: ₹<span id="cartTotal">0</span></h3>
+        <button id="checkoutButton">Proceed to Checkout</button>
+    </div>
+</section>
+
+    <footer>
+        <p>© 2026 ShopEase. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

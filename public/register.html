@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase - Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <h1>ShopEase</h1>
+            <div class="header-actions">
+                <a href="/" class="home-button">Home</a>
+                <a href="/login.html" class="home-button">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="auth-container">
+            <h2>Create Your Account</h2>
+
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+
+                <button type="submit" class="auth-button">Create Account</button>
+            </form>
+
+            <p id="registerMessage"></p>
+
+            <p class="auth-link">
+                Already have an account?
+                <a href="/login.html">Login</a>
+            </p>
+        </section>
+    </main>
+
+    <script src="register.js"></script>
+</body>
+</html>
