@@ -1,3 +1,15 @@
+const loggedInUser = localStorage.getItem("loggedInUser");
+
+const loginButton = document.getElementById("loginButton");
+
+if (loggedInUser) {
+    loginButton.textContent = "Logout";
+
+    loginButton.addEventListener("click", () => {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "login.html";
+    });
+}
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const cartCountElement = document.getElementById("cartCount");
@@ -151,10 +163,6 @@ document.getElementById("continueShoppingButton").addEventListener("click", () =
     document.querySelector(".products-section").scrollIntoView({
         behavior: "smooth"
     });
-});
-
-document.getElementById("loginButton").addEventListener("click", () => {
-    alert("Login page coming soon.");
 });
 
 document.getElementById("checkoutButton").addEventListener("click", () => {

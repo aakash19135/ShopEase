@@ -1,7 +1,7 @@
 const registerForm = document.getElementById("registerForm");
 const registerMessage = document.getElementById("registerMessage");
 
-registerForm.addEventListener("submit", (event) => {
+registerForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const name = document.getElementById("name").value.trim();
@@ -15,39 +15,44 @@ registerForm.addEventListener("submit", (event) => {
         return;
     }
 
-    // Check passwords match
     if (password !== confirmPassword) {
         registerMessage.textContent = "Passwords do not match.";
         registerMessage.style.color = "red";
         return;
     }
 
-  
-    let users = JSON.parse(localStorage.getItem("users")) || [];
+    try {
+        const response = await fetch("/api/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name,
+                email,
+                password
+            })
+        });
 
-   
-    const existingUser = users.find(user => user.email === email);
+        const data = await response.json();
 
-    if (existingUser) {
-        registerMessage.textContent = "An account with this email already exists.";
+        if (!response.ok) {
+            registerMessage.textContent = data.message;
+            registerMessage.style.color = "red";
+            return;
+        }
+
+        registerMessage.textContent = "Account created successfully!";
+        registerMessage.style.color = "green";
+
+        registerForm.reset();
+        setTimeout(() => {
+            window.location.href = "http://localhost:3000/index.html";
+        }, 1000);
+
+    } catch (error) {
+        console.error("Registration error:", error);
+        registerMessage.textContent = "Unable to connect to server.";
         registerMessage.style.color = "red";
-        return;
     }
-
-    const newUser = {
-        name: name,
-        email: email,
-        password: password
-    };
-
-    users.push(newUser);
-
-    // Save user
-    localStorage.setItem("users", JSON.stringify(users));
-
-    registerMessage.textContent = "Account created successfully!";
-    registerMessage.style.color = "green";
-
-    // Clear form
-    registerForm.reset();
 });
