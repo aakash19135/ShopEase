@@ -1,15 +1,16 @@
 const express = require("express");
 const mysql = require("mysql2");
 const bcrypt = require("bcrypt");
+require("dotenv").config();
 const app = express();
 app.use(express.json());
 
 const PORT = 3000;
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "Aakash@0619",
-    database: "shopease"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 
 db.connect((err) => {
@@ -23,9 +24,21 @@ db.connect((err) => {
 
 app.use(express.static("public"));
 app.post("/api/register", async (req, res) => {
-    const { name, email, password } = req.body;
+   const { name, email, password } = req.body;
 
-    try {
+if (!name || !email || !password || name.trim() === "" || email.trim() === "" || password.trim() === "") {
+    return res.status(400).json({
+        message: "Name, email and password are required"
+    });
+}
+
+if (password.length < 6) {
+    return res.status(400).json({
+        message: "Password must be at least 6 characters"
+    });
+}
+
+try {
         const hashedPassword = await bcrypt.hash(password, 10);
         console.log("BCRYPT HASH CREATED");
         const sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
@@ -57,6 +70,11 @@ app.post("/api/register", async (req, res) => {
 });
 app.post("/api/login", (req, res) => {
     const { email, password } = req.body;
+    if (!email || !password || email.trim() === "" || password.trim() === "") {
+    return res.status(400).json({
+        message: "Email and password are required"
+    });
+}
 
     const sql = "SELECT * FROM users WHERE email = ?";
 

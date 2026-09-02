@@ -424,3 +424,247 @@ footer {
     text-align: center;
     margin-top: 20px;
 }
+
+.checkout-page {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.checkout-page > h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+.checkout-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.checkout-items,
+.checkout-summary {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-items h3,
+.checkout-summary h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.checkout-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.checkout-item:last-child {
+    border-bottom: none;
+}
+
+.checkout-item h4 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.checkout-item p {
+    margin: 5px 0;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+#placeOrderButton {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#placeOrderButton:hover {
+    background: #218838;
+}
+
+@media (max-width: 768px) {
+    .checkout-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+#customerForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#customerForm label {
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#customerForm input,
+#customerForm textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+#customerForm textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+#customerForm input:focus,
+#customerForm textarea:focus {
+    outline: none;
+    border-color: #2196f3;
+}
+.confirmation-page {
+    min-height: 80vh;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.confirmation-card {
+    width: 100%;
+    max-width: 800px;
+    background: #ffffff;
+    padding: 45px;
+    border-radius: 14px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.success-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: #16a34a;
+    color: white;
+    font-size: 42px;
+    line-height: 72px;
+    font-weight: bold;
+}
+
+.confirmation-card h2 {
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+.confirmation-message {
+    margin-bottom: 30px;
+    color: #666;
+    font-size: 16px;
+}
+
+.order-details {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px 25px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.order-details .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-details .summary-row:last-child {
+    border-bottom: none;
+}
+
+.confirmation-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 18px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.confirmation-item:last-child {
+    border-bottom: none;
+}
+
+.confirmation-item h3 {
+    margin: 0 0 6px;
+    font-size: 18px;
+}
+
+.confirmation-item p {
+    margin: 0;
+    color: #666;
+}
+
+.confirmation-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 25px 0;
+}
+
+#continueButton,
+#continueShoppingButton {
+    padding: 13px 30px;
+    border: none;
+    border-radius: 6px;
+    background: #16a34a;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#continueButton:hover,
+#continueShoppingButton:hover {
+    background: #15803d;
+}
+
+@media (max-width: 700px) {
+    .confirmation-page {
+        padding: 30px 15px;
+    }
+
+    .confirmation-card {
+        padding: 25px 18px;
+    }
+
+    .confirmation-card h2 {
+        font-size: 26px;
+    }
+
+    .order-details {
+        padding: 15px;
+    }
+
+    .confirmation-item {
+        gap: 15px;
+    }
+
+    .confirmation-total {
+        font-size: 20px;
+    }
+}

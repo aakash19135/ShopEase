@@ -54,6 +54,9 @@ if (product) {
     document.getElementById("productDescription").textContent = product.description;
     document.getElementById("productPrice").textContent =
         `₹${product.price.toLocaleString("en-IN")}`;
+} else {
+    document.querySelector(".product-details").innerHTML =
+        "<h2>Product not found.</h2>";
 }
 
 document.getElementById("addToCartButton").addEventListener("click", () => {

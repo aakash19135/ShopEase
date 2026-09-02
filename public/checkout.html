@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase - Checkout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="top-bar">
+        <h1>ShopEase</h1>
+
+        <div class="header-actions">
+            <button id="continueShoppingButton">
+                Continue Shopping
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="checkout-page">
+
+    <h2>Checkout</h2>
+
+    <section class="checkout-content">
+
+    <div class="checkout-items">
+
+        <h3>Customer Details</h3>
+
+        <form id="customerForm">
+
+            <label for="fullName">Full Name</label>
+            <input
+                type="text"
+                id="fullName"
+                placeholder="Enter your full name"
+                required
+            >
+
+            <label for="email">Email Address</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label for="phone">Phone Number</label>
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+                required
+            >
+
+            <label for="address">Delivery Address</label>
+            <textarea
+                id="address"
+                placeholder="Enter your complete address"
+                required
+            ></textarea>
+
+            <label for="city">City</label>
+            <input
+                type="text"
+                id="city"
+                placeholder="Enter your city"
+                required
+            >
+
+            <label for="pincode">PIN Code</label>
+            <input
+                type="text"
+                id="pincode"
+                placeholder="Enter your PIN code"
+                required
+            >
+
+        </form>
+
+    </div>
+
+    <div class="checkout-summary">
+
+        <h3>Order Summary</h3>
+
+        <div class="summary-row">
+            <span>Total</span>
+            <strong>₹<span id="checkoutTotal">0</span></strong>
+        </div>
+
+        <button id="placeOrderButton" type="button">
+            Place Order
+        </button>
+
+    </div>
+
+</section>
+            <h3>Your Order</h3>
+            <div id="checkoutItems"></div>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="checkout.js"></script>
+
+</body>
+</html>

@@ -2,13 +2,21 @@ const loggedInUser = localStorage.getItem("loggedInUser");
 
 const loginButton = document.getElementById("loginButton");
 
-if (loggedInUser) {
-    loginButton.textContent = "Logout";
+if (loginButton) {
+    if (loggedInUser) {
+        loginButton.textContent = "Logout";
 
-    loginButton.addEventListener("click", () => {
-        localStorage.removeItem("loggedInUser");
-        window.location.href = "login.html";
-    });
+        loginButton.addEventListener("click", () => {
+            localStorage.removeItem("loggedInUser");
+            window.location.href = "login.html";
+        });
+    } else {
+        loginButton.textContent = "Login";
+
+        loginButton.addEventListener("click", () => {
+            window.location.href = "login.html";
+        });
+    }
 }
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -119,33 +127,50 @@ function updateCart() {
         });
     });
 }
-
-searchButton.addEventListener("click", () => {
+function applyFilters() {
     const searchTerm = searchInput.value.toLowerCase().trim();
+    const selectedCategory = categoryFilter.value;
+    let matchFound = false;
 
     productCards.forEach(card => {
         const productName = card.querySelector("h3").textContent.toLowerCase();
         const productDescription = card.querySelector("p").textContent.toLowerCase();
-
-        card.style.display =
-            productName.includes(searchTerm) || productDescription.includes(searchTerm)
-                ? "block"
-                : "none";
-    });
-});
-
-categoryFilter.addEventListener("change", () => {
-    const selectedCategory = categoryFilter.value;
-
-    productCards.forEach(card => {
         const cardCategory = card.dataset.category;
 
-        card.style.display =
-            selectedCategory === "all" || cardCategory === selectedCategory
-                ? "block"
-                : "none";
+        const matchesSearch =
+            productName.includes(searchTerm) ||
+            productDescription.includes(searchTerm);
+
+        const matchesCategory =
+            selectedCategory === "all" ||
+            cardCategory === selectedCategory;
+
+        const shouldDisplay = matchesSearch && matchesCategory;
+
+        card.style.display = shouldDisplay ? "block" : "none";
+
+        if (shouldDisplay) {
+            matchFound = true;
+        }
     });
-});
+
+    let noResultsMessage = document.getElementById("noResultsMessage");
+
+    if (!matchFound && searchTerm !== "") {
+        if (!noResultsMessage) {
+            noResultsMessage = document.createElement("p");
+            noResultsMessage.id = "noResultsMessage";
+            noResultsMessage.textContent = "No products found.";
+            document.querySelector(".products-section").appendChild(noResultsMessage);
+        }
+    } else if (noResultsMessage) {
+        noResultsMessage.remove();
+    }
+}
+
+searchButton.addEventListener("click", applyFilters);
+
+categoryFilter.addEventListener("change", applyFilters);
 
 document.getElementById("shopNowButton").addEventListener("click", () => {
     document.querySelector(".products-section").scrollIntoView({
@@ -171,7 +196,7 @@ document.getElementById("checkoutButton").addEventListener("click", () => {
         return;
     }
 
-    alert("Checkout page coming soon.");
+    window.location.href = "checkout.html";
 });
 
 updateCart();

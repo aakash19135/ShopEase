@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase - Order Confirmation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="top-bar">
+        <h1>ShopEase</h1>
+        <div class="header-actions">
+            <button id="continueShoppingButton">Continue Shopping</button>
+        </div>
+    </div>
+</header>
+
+<main class="checkout-page">
+    <h2>Order Confirmation</h2>
+
+    <section class="confirmation-content">
+
+        <div class="confirmation-card">
+            <div class="success-icon">✓</div>
+            <h3>Order Placed Successfully</h3>
+
+            <div class="confirmation-details">
+                <p><strong>Order ID:</strong> <span id="orderId"></span></p>
+                <p><strong>Order Date:</strong> <span id="orderDate"></span></p>
+                <p><strong>Status:</strong> <span id="orderStatus"></span></p>
+            </div>
+
+            <h3>Your Order</h3>
+            <div id="confirmationItems"></div>
+
+            <div class="confirmation-total">
+                <span>Total</span>
+                <strong>₹<span id="orderTotal">0</span></strong>
+            </div>
+
+            <button id="continueButton">Continue Shopping</button>
+        </div>
+
+    </section>
+</main>
+
+<script src="confirmation.js"></script>
+
+</body>
+</html>
