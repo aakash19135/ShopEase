@@ -84,3 +84,30 @@ confirmation, along with functional
 testing, API testing, database 
 validation, bug reporting, and 
 retesting.
+
+## QA & Testing
+
+ShopEase was tested as both a functional e-commerce application and a backend system.
+
+### Functional Testing
+- 40 functional test cases executed
+- 40 tests passed
+- 3 defects identified, fixed, and retested
+- Test cases, bug reports, and test summary documented in Excel
+
+### API Testing
+- REST API testing performed using Postman
+- Registration and login APIs tested
+- Positive and negative scenarios covered
+- Authentication, validation, duplicate data, SQL injection, and password handling tested
+- Postman API collection included in the repository
+
+### Database Testing
+- MySQL database validation performed
+- User data integrity verified
+- NULL-value validation performed
+- Duplicate email validation performed
+- Password hashing verified
+
+### QA Evidence
+Test evidence and QA documentation are available in the `QA` folder.
