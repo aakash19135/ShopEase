@@ -40,7 +40,6 @@ if (password.length < 6) {
 
 try {
         const hashedPassword = await bcrypt.hash(password, 10);
-        console.log("BCRYPT HASH CREATED");
         const sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
 
         db.query(sql, [name, email, hashedPassword], (err, result) => {
